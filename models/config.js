@@ -2,16 +2,13 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 dotenv.config(); // Load environment variables
-
-const connect = mongoose.connect(process.env.MONGODB_URI);
-
-// Check database connected or not
-connect.then(() => {
-    console.log("Database Connected Successfully");
-})
-.catch(() => {
-    console.log("Database cannot be Connected");
-});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/simple-cart', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    tls: true,
+    tlsAllowInvalidCertificates: true
+}).then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 // Create Schema
 const Loginschema = new mongoose.Schema({

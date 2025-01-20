@@ -84,7 +84,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/simple-ca
     useNewUrlParser: true,
     useUnifiedTopology: true,
     tls: true,
-    tlsCAFile: '/etc/ssl/certs/ca-certificates.crt'
+    tlsAllowInvalidCertificates: true
 }).then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
