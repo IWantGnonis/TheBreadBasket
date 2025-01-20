@@ -2,7 +2,7 @@ import express from 'express';
 import User from '../models/user.js';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const router = express.Router();
 
