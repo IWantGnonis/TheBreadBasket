@@ -1,0 +1,94 @@
+<div>
+    <% if (typeof isShop !== 'undefined' && isShop) { %>
+      <!-- Cart Button -->
+      <div class="h-[50px]"></div>
+      <% } else if (typeof isCart !== 'undefined' && isCart) { %>
+      <!-- Cart Page -->
+      <div class="h-[50px]"></div>
+      <% } else { %>
+      <div class="h-[0px]"></div>
+      <!-- Login/Logout Button -->
+    <% } %>
+</div>
+</div>
+
+
+
+<nav class="navbar-section border flex items-center justify-between w-full px-8 py-4 fixed top-0 z-50">
+    <div class="flex items-center">
+      <button class="hamburger-button">
+        <span class="hamburger-icon"></span>
+        <span class="hamburger-icon"></span>
+      </button>
+    </div>
+    <div class="pl-[60px] flex justify-center">
+      <div class="logo-text">
+        <div class="title font-bold text-4xl">
+          <h1>The Bread<br> Basket</h1>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <% if (typeof isShop !== 'undefined' && isShop) { %>
+        <!-- Cart Button -->
+        <a href="/cart" class="navigation-top-button cart-button">
+          <span data-text="CART">CART</span>
+        </a>
+      <% } else { %>
+        <!-- Login/Logout Button -->
+        <% if (locals.userId) { %>
+          <a href="/logout" class="navigation-top-button">
+            <span data-text="LOGOUT">LOGOUT</span>
+          </a>
+        <% } else { %>
+          <a href="/signin" class="navigation-top-button">
+            <span data-text="LOGIN">LOGIN</span>
+          </a>
+        <% } %>
+      <% } %>
+    </div>
+</nav>
+
+
+  
+
+<!-- Add this right after your hamburger button -->
+
+<div class="menu-overlay ">
+  <div class="menu-content">
+    <nav class="menu-nav">
+      <ul class="menu-list">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="/shop">SHOP</a></li>
+        <li><a href="/stores">STORES</a></li>
+      </ul>
+    </nav>
+    <div class="menu-title">
+      <h1>THE BREAD<br>BASKET</h1>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const hamburgerBtn = document.querySelector('.hamburger-button');
+  const menuOverlay = document.querySelector('.menu-overlay');
+  const navbar = document.querySelector('.navbar-section');
+  const title = document.querySelector('.title');
+
+  if (hamburgerBtn && menuOverlay) {
+    hamburgerBtn.addEventListener('click', () => {
+      console.log('Button clicked');  
+      hamburgerBtn.classList.toggle('active');
+      menuOverlay.classList.toggle('active');
+      title.classList.toggle('active');
+      navbar.classList.toggle('active');
+    });
+  }
+});
+
+</script>
+

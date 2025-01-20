@@ -1,0 +1,18 @@
+
+
+@font-face {
+    font-family: brand ;
+    src: url("./Font/Brand.ttf");
+}
+
+
+
+.title{
+    font-family: brand;
+    text-align: center;
+    color: #F8F4E1;
+  
+}
+.screen{
+    background-color: #543310;
+}

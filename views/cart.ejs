@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - The Bread Basket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+<body class="bg-[#F8F4E1]">
+    <!-- Reuse your navbar from index.ejs -->
+    <%- include('components/navbar',{ isCart: true })  %>
+
+    <main class="pt-24 px-8 md:px-16 min-h-screen">
+        <h1 class="text-5xl text-[#543310] font-serif mb-12">Your Cart</h1>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Cart Items Section -->
+            <div class="lg:col-span-2">
+                <% if (cartItems && cartItems.length > 0) { %>
+                    <% cartItems.forEach(item => { %>
+                        <div class="cart-item bg-white rounded-xl p-4 mb-4 flex gap-4" data-product-id="<%= item._id %>">
+                            <img src="<%= item.image %>" alt="<%= item.name %>" class="w-24 h-24 object-cover rounded-lg">
+                            <div class="flex-grow">
+                                <h3 class="text-xl font-semibold text-[#543310]"><%= item.name %></h3>
+                                <p class="text-gray-600">$<%= item.price.toFixed(2) %></p>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <button class="px-2 py-1 border rounded">-</button>
+                                    <span><%= item.quantity %></span>
+                                    <button class="px-2 py-1 border rounded">+</button>
+                                    <button class="ml-4 text-red-500 remove-item">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="text-center py-8">
+                        <p class="text-gray-600">Your cart is empty</p>
+                        <a href="/shop" class="text-[#543310] hover:underline mt-2 inline-block">Continue Shopping</a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- Order Summary Section -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl p-6">
+                    <h2 class="text-2xl font-semibold text-[#543310] mb-4">Order Summary</h2>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span>$<%= subtotal.toFixed(2) %></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Shipping</span>
+                            <span>$<%= shipping.toFixed(2) %></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Tax</span>
+                            <span>$<%= tax.toFixed(2) %></span>
+                        </div>
+                        <div class="border-t pt-2 mt-4">
+                            <div class="flex justify-between font-bold">
+                                <span>Total</span>
+                                <span>$<%= total.toFixed(2) %></span>
+                            </div>
+                        </div>
+                        <button class="w-full mt-4 px-6 py-3 bg-[#543310] text-white rounded-full hover:bg-[#6B4114] transition">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reuse your footer from index.ejs -->
+    <%- include('components/footer') %>
+
+    <script>
+        async function updateQuantity(productId, newQuantity) {
+            try {
+                const response = await fetch('/cart/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ productId, quantity: newQuantity }),
+                });
+
+                if (response.ok) {
+                    location.reload(); // Refresh to update totals
+                }
+            } catch (error) {
+                console.error('Error updating cart:', error);
+                alert('Failed to update cart');
+            }
+        }
+
+        async function removeItem(productId) {
+            try {
+                const response = await fetch('/cart/remove', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ productId }),
+                });
+
+                if (response.ok) {
+                    location.reload();
+                }
+            } catch (error) {
+                console.error('Error removing item:', error);
+                alert('Failed to remove item');
+            }
+        }
+
+        // Add event listeners to quantity buttons and remove buttons
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const productId = item.dataset.productId;
+            const quantitySpan = item.querySelector('span');
+            
+            item.querySelector('button:first-of-type').onclick = () => {
+                const newQuantity = parseInt(quantitySpan.textContent) - 1;
+                updateQuantity(productId, newQuantity);
+            };
+
+            item.querySelector('button:nth-of-type(2)').onclick = () => {
+                const newQuantity = parseInt(quantitySpan.textContent) + 1;
+                updateQuantity(productId, newQuantity);
+            };
+
+            item.querySelector('.remove-item').onclick = () => {
+                removeItem(productId);
+            };
+        });
+    </script>
+</body>
+</html> 

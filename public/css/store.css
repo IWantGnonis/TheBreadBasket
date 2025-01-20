@@ -1,0 +1,461 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: brand ;
+    src: url("../Font/Brand.ttf");
+}
+*,*::before,*::after{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.font-text{
+    font-family: brand;
+}
+body{
+    background-color: #F8F4E1;
+    user-select: text;
+}
+.title{
+    font-family: brand;
+    text-align: center;
+    justify-content: center;
+    color: #543310;
+
+}
+.s-line{
+    height: 1px;
+    width: 100%;
+    background-color: #543310;
+}
+
+.s-line2{
+  height: 1px;
+  width: 100%;
+  background-color: #543310;
+}
+.s-line3{
+  height: 1px;
+  width: 100%;
+  background-color: #543310;
+}
+
+.hover-animation {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .hover-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #543310;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+
+.shop-text{
+  height:155px ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Navbar */
+
+
+/*Login Button */
+
+
+
+.navigation-top-button {
+  background: #543310;
+  color: #F8F4E1;
+  border: none;
+  outline: none;
+  height: 3vw;
+  width: 10vw;
+  border-radius: 0;
+  overflow: hidden;
+  transform: scaleX(1);
+  transition: transform 4.5s cubic-bezier(.4,0,0,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: all;
+}
+
+.navigation-top-button:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #b28571;
+  transition: transform .5s cubic-bezier(.4,0,0,1),border-radius .5s cubic-bezier(.4,0,0,1);
+  width: 100%;
+  height: 100%;
+  border-radius: 50% 50% 0 0;
+  transform: translateY(101%)
+}
+
+.navigation-top-button:hover:after {
+  transform: translateY(0);
+  border-radius: 0
+  
+}
+
+.navigation-top-button span {
+  display: inline-block;
+  font-size: 1.5vw;
+  font-weight: 400;
+  position: relative;
+  color: #F8F4E1;
+  transition: color 0.5s cubic-bezier(.2,0,0,1);
+}
+
+.navigation-top-button span:after {
+  width: 100%;
+  height: 100%;
+  transition: transform .5s cubic-bezier(.2,0,0,1);
+  content: attr(data-text);
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  transform: translate(-50%,100%);
+  color: #543310;
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+
+.navigation-top-button:hover span:after {
+  transform: translate(-50%);
+}
+
+.navigation-top-button:focus {
+  outline: none
+}
+
+
+@media (max-width: 768px) {
+.navigation-top-button {
+  height: auto;
+  width: auto;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+} 
+
+
+.navbar{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+position: fixed;
+top: 20px;
+left: 20px;
+z-index: 1000;
+}
+
+/* Navbar-section */
+.navbar-section{
+background-color: #F8F4E1;
+
+}
+.navbar-section.active{
+border: none;
+border-width: none;
+}
+
+
+
+
+
+
+
+
+
+
+.hamburger-button{
+background-color:#543310;
+border: none;
+outline: none;
+cursor: pointer;
+width: 75px;
+height: 75px;
+border-radius: 50%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.hamburger-icon{
+background-color: #F8F4E1;
+width: 50px;
+height: 2.4px;
+border-radius: 5px;
+transition: transform 0.3s ease, opacity 0.3s ease;
+
+}
+.hamburger-icon:nth-child(1) {
+margin-bottom : 10px;
+}
+
+.hamburger-button.active .hamburger-icon:nth-child(1) {
+transform: rotate(45deg) translate(4.8px, 5px); /* Rotate to form the top part of the 'X' */
+}
+
+.hamburger-button.active .hamburger-icon:nth-child(2) {
+transform: rotate(-45deg) translate(3.5px, -4.5px); /* Rotate to form the bottom part of the 'X' */
+}
+
+.menu-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #F8F4E1;
+z-index: 40; /* Adjusted to be below navbar z-index of 50 */
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.5s ease, visibility 0.5s ease;
+pointer-events: none;
+}
+
+.menu-overlay.active {
+opacity: 1;
+visibility: visible;
+pointer-events: all;
+}
+.menu-content {
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 8rem;
+
+}
+
+.menu-title {
+font-family: brand;
+color: #543310;
+text-align: center;
+}
+
+.menu-title h1 {
+font-size: 4rem;
+font-weight: bold;
+line-height: 1.1;
+}
+.menu-list {
+list-style: none;
+text-align: center;
+padding-top: 6rem;
+}
+.menu-list li a {
+font-family: brand;
+font-size: 5rem;
+color: #543310;
+text-decoration: none;
+position: relative;
+transition: all 0.3s ease;
+}
+
+.menu-list li a:hover {
+color: #b28571;
+}
+
+.menu-list li a::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 50%;
+background-color: #543310;
+transition: all 0.3s ease;
+}
+
+.menu-list li a:hover::after {
+width: 100%;
+left: 0;
+}
+
+.title.active{
+display: none;
+}
+.navbar.active{
+border: none;
+}
+
+
+
+/* NAVBAR END */
+
+
+
+
+
+
+/* Experiments */
+.contain {
+  position: relative;
+  overflow: hidden; /* Ensure that content outside the container is clipped */
+}
+
+/* Apply the mask over the image */
+.img-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Initially covers the entire image */
+  height: 100%;
+  background: #F8F4E1; /* Mask color */
+  z-index: 1;
+}
+
+
+/* Ensure that the image is inside a container that has relative positioning */
+.img-container img {
+  display: block;
+  width: 100%; /* Make sure the image covers the container */
+  height: auto;
+}
+/* Ensure that the container has relative positioning */
+.img-container1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Initially covers the entire image */
+  height: 100%;
+  background: #F8F4E1; /* Mask color */
+  z-index: 1;
+  transform-origin: left; /* Animation starts from the left */
+}
+
+/* Ensure the containers have relative positioning */
+.contain,
+.contain1 {
+  position: relative;
+  overflow: hidden; /* Clips any overflowing content */
+}
+
+.img-container,
+.img-container1 {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+/* Footer */
+.grand{
+    color: #543310;
+  }
+  .main{
+    width: 1129px;
+    height: 180px;
+  }
+  
+  .box1{
+    width: 100%;
+    height: 189px;
+  }
+  .box2{
+    width: 100%;
+    height: 189px;
+  }
+  .box3{
+    width: 100%;
+    height: 189px;
+  }
+  .email::placeholder{
+    border:none;
+    outline: none;
+    color: #543310;
+  }
+  .email{
+    background-color: #F8F4E1;
+    border:none;
+    outline: none;
+    color: #543310;
+  }
+  .email-line{
+    background-color: #543310;
+  }
+  .stay-in{
+    font-family: ab;
+  }
+  .text-box1{
+    width: 100%;
+  }
+  .text-box2{
+    width: 100%;
+  }
+  .text-box3{
+    width: 100%;
+  }
+  .text-box4{
+    width: 100%;
+  }
+  .box2-text{
+    font-family: ab;
+  }
+  .box3-text{
+    font-family: ab;
+  }
+  .mtgrand{
+    width: 100%;
+  }
+  .long-line{
+    height: 1px;
+    border-radius:12px;
+    width: 100%;
+    background-color: #543310;
+  }
+  

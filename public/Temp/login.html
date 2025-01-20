@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+.form-container{
+    background-color: #543310;
+    width: 80%;
+    height: 600px;
+    position: fixed;
+    z-index: 9;
+    left: 102.222;
+    background-image: url(./Image/bread-l.jpg);
+    background-size:100% ;
+    color: #F8F4E1;
+}
+.just::selection{
+    background-color: #543310 /* #000000 */;
+}
+@font-face {
+    font-family: brand ;
+    src: url("./Font/Brand.ttf");
+}
+.title{
+    font-family: brand;
+    text-align: center;
+    color: #F8F4E1;
+
+}
+.email1-line{
+
+    background-color: #F8F4E1;
+}
+.text-log{
+    color: #F8F4E1;
+}
+body{
+    background-color: #F8F4E1;
+}
+.btn{
+    color: #543310;
+}
+.logbtn{
+    background-color: #AF8F6F;
+    color: #F8F4E1;
+}
+.close-btn:hover{
+    transition: 1s;
+    background-color: #AF8F6F;
+}
+    </style>
+</head>
+<body class="overflow-x-hidden">
+    <div class="w-full h-fit ">
+        <div class="justify-end flex">
+            <button class="btn py-2 px-7"onclick="openForm()">Login</button>
+        </div>
+        <div id="myForm" class="form-container hidden  rounded-xl select-none ">
+            <div class=" z-10 absolute w-full flex justify-end "><span onclick="close_Form()" class="material-symbols-outlined close-btn rounded-md text-3xl px-3 py-2">close</span></div>
+            <div class="pl-16 w-3/6 h-full">
+                <div class="title flex justify-start pt-10">
+                    <div>
+                        <h3 class="text-4xl font-bold">THE BREAD</h3>
+                        <div class="text-4xl font-bold">BASKET</div>
+                    </div>
+                </div> 
+                <div class="log font-extralight pl-4 pt-5 text-4xl">
+                    <h1>LOGIN</h1>
+                </div>
+                <div class="text-log ml-4 mt-2 text-xl">
+                    Sign in with your email address and Password
+                </div>
+                <form>
+                    <div class="ml-4 mt-16">
+                        <input type="email" placeholder="Email address" class="just border-none w-52 bg-transparent placeholder:text-inherit outline-none">
+                        <div class="email1-line mt-2 h-px rounded-xl w-60"></div>
+                    </div>
+                    <div class="ml-4 mt-5">
+                        <input type="password" placeholder="Password" class="just border-none  w-52 bg-transparent placeholder:text-inherit outline-none">
+                        <div class="email1-line mt-2 h-px rounded-xl w-60"></div>
+                    </div>
+                    <div class=" ml-4 mt-5 ">
+                        <button class="logbtn px-14 text-center py-2 rounded-xl">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    function openForm() {
+    document.getElementById("myForm").style.display = "block";
+
+  }
+  function close_Form() {
+    document.getElementById("myForm").style.display = "none";
+
+  }
+</script>
+
+</body>
+</html>

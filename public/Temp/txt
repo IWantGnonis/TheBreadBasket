@@ -1,0 +1,91 @@
+
+<footer class="flex flex-col">
+  <div class="w-screen h-screen p-10 pb-0">
+    
+    <div class="grandbox flex flex-row">
+      <div class="div1 flex justify-center">
+        <div>
+          <h1>join our community</h1>
+        </div>
+      </div>
+      <div class="div2 flex justify-center" >
+        <div class="main-box flex flex-col items-center">
+
+            <div class="h-10 w-56">
+              
+              <h1 class="h-10 w-56">
+                Subscribe to our Newsletter
+              </h1>
+            </div>
+              <div class="box text-black flex items-center">
+                <div class="flex flex-row">
+  
+                  <div class="div-col flex flex-col">
+    
+                    <input type="email" placeholder="Email Address" class="text-box placeholder-black pb-14  bg-transparent h-24 text-7xl " />
+                    <div class="text-box-line h-px rounded-xl bg-black"></div>
+                  </div>
+                  <object data="/Font/arrow-icon.svg" class="w-14"> </object>
+                </div>
+              </div>
+
+
+        </div>
+      </div>
+    </div>
+    <!-- Links footer -->
+    <div class="flex flex-wrap md:text-left text-center order-first justify-between">
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4 text-center">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Legal</h2>
+        <nav class="list-none select-none mb-10">
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Terms of Use</a>
+          </li>
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Privacy Policy</a>
+          </li>
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">FAQ</a>
+          </li>
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Support</a>
+          </li>
+        </nav>
+      </div>
+      <div class="lg:w-1/4 md:w-1/2 w-full px-4 text-center">
+        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Social</h2>
+        <nav class="list-none select-none mb-10">
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Instragram</a>
+          </li>
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Facebook</a>
+          </li>
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Linkedin</a>
+          </li>
+          <li>
+            <a class="hover-animation text-gray-600 hover:text-gray-800">Pinterest</a>
+          </li>
+        </nav>
+      </div>
+
+    </div>
+
+
+      <!-- last Footer -->
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">Tailblocks</span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2020 Tailblocks —
+        <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@knyttneve</a>
+      </p>
+
+    </div>
+  </div>
+  
+</footer>

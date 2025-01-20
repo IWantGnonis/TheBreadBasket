@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - The Bread Basket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/about.css">
+</head>
+<body class="overflow-x-hidden overflow-auto">
+  <div id="mask"></div>
+  <section id="content" class="hidden">
+    <!-- Replace the old navbar with the component -->
+    <%- include('components/navbar') %>
+
+    <!-- page-1 -->
+    <div class="body-text mt-28 w-screen h-fit flex flex-col text-6xl justify-center pt-20 items-center">
+      <div class="text-1 w-3/4 h-fit pr-40">
+        On a restaurant table, a humble bread basket might seem like a simple accessory.
+      </div>
+      
+      <div class="text-1 w-3/4 h-fit pr-40">
+        But woven within its purpose lies a deeper story. It's the vessel that tempts with warm rolls and crusty baguettes, the initiator of pre-dinner conversation as hands reach for shared slices. 
+      </div>
+      <div class="text-1 w-3/4 h-fit pr-40">
+      </div>
+      <!-- Founder -->
+      <div class="flex w-screen justify-end">
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <%- include('components/footer') %>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="/js/about.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const mask = document.getElementById("mask");
+      const content = document.getElementById("content");
+
+      // Wait for the mask animation to complete
+      mask.addEventListener("animationend", () => {
+        mask.style.display = "none";
+        content.classList.remove("hidden");
+      });
+    });
+  </script>
+</body>
+</html>

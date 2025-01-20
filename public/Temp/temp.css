@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: brand ;
+    src: url("./fonts/Brand.ttf");
+}
+
+@font-face {
+    font-family: boska-bold ;
+    src: url("./fonts/fonts/Boska-Bold.ttf");
+}
+
+@font-face {
+    font-family: boska-medium ;
+    src: url("./fonts/Boska-Medium.ttf");
+}
+
+@font-face {
+    font-family: boska-medium-italic ;
+    src: url("./fonts/Boska-MediumItalic.ttf");
+}
+
+@font-face {
+    font-family: boska-Bold ;
+    src: url("./fonts/Boska-Bold.ttf");
+}
+
+body{
+    background-color: #F8F4E1;
+}
+.title{
+    font-family: brand;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.tagline{
+    font-family: brand;
+    align-items: center;
+}
+
+
+.products{
+    height: 100%;
+    width: 100%;
+    font-family: brand;
+}
+
+.pro{
+    font-size: 40vw;
+    transform: translate(23%);
+}
+
+#prospan{
+    font-family: brand;
+}
+
+#breads{
+    font-family: brand;
+}
+#categ{
+    font-family: boska-Bold;
+}
+#text{
+   
+    color: #000000;
+}
+
+
