@@ -83,7 +83,8 @@ app.get('/', (req, res) => {
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/simple-cart', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    tls: true
+    tls: true,
+    tlsCAFile: '/etc/ssl/certs/ca-certificates.crt'
 }).then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
 
