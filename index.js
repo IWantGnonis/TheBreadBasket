@@ -80,13 +80,7 @@ app.get('/', (req, res) => {
 });
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/simple-cart', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    tls: true,
-    tlsAllowInvalidCertificates: true
-}).then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+
 
 // Set EJS as the templating engine
 app.set('view engine', 'ejs');
@@ -97,4 +91,5 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
 });
+
 
