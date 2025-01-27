@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import { fileURLToPath } from 'url';
@@ -37,7 +36,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost:27017/simple-cart',
+        mongoUrl: process.env.MONGODB_URI,
         ttl: 24 * 60 * 60 // Session TTL (1 day)
     }),
     cookie: {
