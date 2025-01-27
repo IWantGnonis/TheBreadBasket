@@ -4,7 +4,6 @@ import session from 'express-session';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
-import MongoStore from 'connect-mongo';
 import dotenv from 'dotenv';
 
 // Import models
